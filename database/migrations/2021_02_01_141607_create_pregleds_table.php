@@ -16,7 +16,7 @@ class CreatePregledsTable extends Migration
         Schema::create('pregleds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('simptomi');
-            $table->dateTime('termin');
+            $table->date('termin');
         });
     }
 
