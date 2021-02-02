@@ -15,4 +15,9 @@ class Doktor extends Model
     {
         return $this->hasMany('App\Http\Models\Pregled', 'iddoktora', 'id');
     }
+
+    public function vratiImePrezimeDoktora()
+    {
+        return $this->ime_prezime;
+    }
 }

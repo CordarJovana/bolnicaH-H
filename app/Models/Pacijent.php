@@ -15,4 +15,9 @@ class Pacijent extends Model
     {
         return $this->hasMany('App\Http\Models\Pregled', 'idkorisnika', 'id');
     }
+
+    public function vratiImePrezimePacijenta()
+    {
+        return $this->ime_prezime;
+    }
 }
