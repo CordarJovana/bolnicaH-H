@@ -27,35 +27,42 @@
             <table id="users-table" class="table">
               <thead>
                     <tr>
-                      <th scope="col">Doktor ID</th>
-                      <th scope="col">Ime</th>
-                      <th scope="col">Prezime</th>
+                      <th scope="col">Ime i Prezime</th>
                       <th scope="col">JMBG</th>
                       <th scope="col">Specijalista</th>
                     </tr>
                   </thead>
-                    <tbody id="doktori_podaci"></tbody>
+                    <tbody id="doktori_podaci">
+                    @foreach($doktori as $doktor)
+                    <tr class="border-b hover:bg-orange-100">
+                        <td contentEditable=true class="p-3 px-5">
+                            {{$doktor->ime_prezime}}
+                        </td>
+                        <td contentEditable=true class="p-3 px-5">
+                            {{$doktor->jmbg}}
+                        </td>
+                        <td contentEditable=true class="p-3 px-5">
+                            {{$doktor->kategorija}}
+                        </td>
+                        <td>
+                            
+                          
+                        <button class="btn btn-danger obriši-doktora" >Obriši</button>
+                        <button class="btn btn-primary prikazi-preglede" >Prikaži preglede</button>
+                      </td>
+                    </tr>
+                @endforeach
+                    </tbody>
                 </table>
               </div>
         </div></div></div>
         
 
-<!-- Forma za unos novog pacijenta-->
-              <form id="dodaj_doktora">
-                <div class="form-inline">
-                  <input type="text" class="form-control m-2" name="ime" id="ime_doktora" 
-                  placeholder="Unesite ime" value="" required>
-                  <input type="text" class="form-control m-2" name="prezime" id="prezime_doktora" 
-                  placeholder="Unesite prezime" value="" required>
-                  <input type="text" class="form-control m-2" name="jmbg" id="jmbg_doktora" 
-                  placeholder="Unesite JMBG" value="" required>
-                  <div class="form-group">
-                <select class="form-control m-2" id="kategorija_doktora">
-                    </select>
+<!-- Forma za unos novog doktora-->
+
+              <div class="flex-auto text-right mt-2">
+                    <a href="/doktor" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Dodaj novog doktora</a>
                 </div>
-                  <button type="submit" name="submit" id="dodaj_doktora" class="btn btn-success m-2" onclick="kreirajDoktora()">Sačuvaj</button>
-                
-              </form>    
               
 <!-- Tabela Pacijenata-->
 <div class="container-fluid padding">
@@ -66,36 +73,46 @@
             <table id="users-table" class="table">
               <thead>
                     <tr>
-                      <th scope="col">Pacijent ID</th>
-                      <th scope="col">Ime</th>
-                      <th scope="col">Prezime</th>
+                      <th scope="col">Ime i Prezime</th>
                       <th scope="col">JMBG</th>
                     </tr>
                   </thead>
-                    <tbody id="pacijenti_podaci"></tbody>
+                    <tbody id="pacijenti_podaci">
+                    @foreach($pacijenti as $pacijent)
+                    <tr class="border-b hover:bg-orange-100">
+                        <td contentEditable=true class="p-3 px-5">
+                            {{$pacijent->ime_prezime}}
+                        </td>
+                        <td contentEditable=true class="p-3 px-5">
+                            {{$pacijent->jmbg}}
+                        </td>
+                        <td>
+                        <a href="/pacijent/{{$pacijent->id}}" name="editp" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-black py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</a>
+                        <a href="/pacijentdelete/{{$pacijent->id}}" name="deletep" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-black py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</a>
+                        <button class="btn btn-danger obriši-pacijenta" >Obriši</button>
+                        <button class="btn btn-primary prikazi-preglede" >Prikaži preglede</button>
+                      </td>
+                    </tr>
+                @endforeach
+                    </tbody>
                 </table>
               </div>
+
+
+              <div class="flex-auto text-right mt-2">
+                    <a href="/pacijent" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Add new Task</a>
+                </div>
         
 
 <!-- Forma za unos novog pacijenta-->
-              <form id="dodaj_pacijenta">
-                <div class="form-inline">
-                  <input type="text" class="form-control m-2" name="ime" id="ime_pacijenta" 
-                  placeholder="Unesite ime" value="" required>
-                  <input type="text" class="form-control m-2" name="prezime" id="prezime_pacijenta" 
-                  placeholder="Unesite prezime" value="" required>
-                  <input type="text" class="form-control m-2" name="jmbg" id="jmbg_pacijenta" 
-                  placeholder="Unesite JMBG" value="" required>
-                  <button type="submit" name="submit" id="dodaj_pacijenta" class="btn btn-success" onclick="kreirajPacijenta()">Sačuvaj</button>
+<div class="flex-auto text-right mt-2">
+                    <button href="/pacijent" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Dodaj novog pacijenta</button>
                 </div>
-                   </form>     
-            </div>
-          </div>
 
 <!-- Forma za dodavanje novog pregleda-->
 <div class="formaZaDodavanje">
     <form>
-        <h1 class="my-3">Unesite novi pregled</h1>
+        <h1 class="my-3">Zakažite pregled</h1>
         <div class="form-inline">
             <input type="datetime" class="form-control m-2" title="Unesite datum i vreme pregleda (u formatu godina-mesec-dan sat:minut:sekund)" id="datum_pregleda" placeholder="Unesite datum u formatu:GGGG-MM-DD">
             

@@ -7,13 +7,41 @@ use App\Models\Pacijent;
 
 class PacijentController extends Controller
 {
-    public function vratiPacijente()
+    public  static function vratiPacijente()
     {
         $pacijenti = Pacijent::all();
 
-        return response()->json([
-            'pacijenti' => $pacijenti
-        ]);
+       return $pacijenti;
+    }
+
+    public function add(){
+        return view('addp');
+    }
+
+    public function create(Request $request){
+       
+        $pacijent = new Pacijent();
+        $pacijent->ime_prezime = $request->ime_prezime;
+        $pacijent->jmbg = $request->jmbg;
+        $pacijent->save();
+        return redirect('/pocetna');
+    }
+
+    public function edit(Pacijent $pacijent){
+        
+            return view('editp',compact('pacijent'));     
+        
+    }
+
+    public function update(Request $request, Pacijent $pacijent){
+        
+        
+        $pacijent->ime_prezime = $request->ime_prezime;
+        $pacijent->jmbg = $request->jmbg;
+        $pacijent->save();
+        return redirect('/pocetna');
+           
+        
     }
 
     public function kreirajPacijenta(Request $request)
@@ -30,9 +58,10 @@ class PacijentController extends Controller
             'jmbg' => $jmbg
         ]);
 
-        return response()->json([
+        /*return response()->json([
             'poruka' => "Uspešno ste dodali novi karton pacijenta: ".$ime_prezime." !"
-        ]);
+        ]);*/
+        return redirect('/');
     }
 
     public function izmeniPacijenta(Request $request){
@@ -55,11 +84,12 @@ class PacijentController extends Controller
         }
     }
 
-
-    public function obrisiPacijenta(Request $request)
+public function delete(Pacijent $pacijent){
+    return view('deletep',compact('pacijent'));  
+}
+    public function obrisiPacijenta(Pacijent $pacijent)
     {
-        $id = $request->input('id');
-        Pacijent::find($id)->delete();
-
+        $pacijent->delete();
+        return redirect('/pocetna');
     }
 }

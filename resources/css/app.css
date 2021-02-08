@@ -220,7 +220,7 @@ figure {
 }
 
 #pacijenti_body{
-  background-image: url("Slike/pacijenti.jpg");
+  
   background-size: 100% !important;
   background-repeat:no-repeat;
 }
@@ -233,7 +233,7 @@ figure {
 }
 
 #pregledi_body{
-  background-image: url("Slike/proba.png");
+  
   background-size: 100% !important;
   background-repeat:no-repeat;
 }

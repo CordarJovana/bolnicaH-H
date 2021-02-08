@@ -16,7 +16,7 @@ class CreateDoktorsTable extends Migration
         Schema::create('doktors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ime_prezime');
-            $table->string('jmbg')->unique();
+            $table->string('jmbg');
             $table->enum('kategorija', ['neurolog', 'dermatolog', 'psiholog', 'pedijatar']);
         });
     }

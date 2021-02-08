@@ -16,7 +16,7 @@ class CreatePacijentsTable extends Migration
         Schema::create('pacijents', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ime_prezime');
-            $table->string('jmbg')->unique();
+            $table->string('jmbg');
             $table->string('email');
         });
     }

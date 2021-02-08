@@ -7,13 +7,25 @@ use App\Models\Doktor;
 
 class DoktorController extends Controller
 {
-    public function vratiDoktore()
+    public static function vratiDoktore()
     {
         $doktori = Doktor::all();
 
-        return response()->json([
-            'doktori' => $doktori
-        ]);
+        return $doktori;
+    }
+
+    public function add(){
+        return view('addd');
+    }
+
+    public function create(Request $request){
+       
+        $doktor = new Doktor();
+        $doktor->ime_prezime = $request->ime_prezime;
+        $doktor->jmbg = $request->jmbg;
+        $kategorija = $request->input('kategorija');
+        $doktor->save();
+        return redirect('/pocetna');
     }
 
     public function kreirajDoktora(Request $request)
@@ -25,7 +37,7 @@ class DoktorController extends Controller
         $kategorija = $request->input('kategorija');
 
 
-        Pacijent::insert([
+        Doktor::insert([
             'ime_prezime' => $ime_prezime,
             'jmbg' => $jmbg,
             'kategorija' => $kategorija
