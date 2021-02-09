@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\DoktorController;
 use App\Http\Controllers\PacijentController;
+use App\Http\Controllers\PregledController;
 Route::get('/', [MainController::class, 'pocetna']);
 
 Route::get('/pocetna', function(){
@@ -38,4 +39,8 @@ Route::post('/doktor/{doktor}', [DoktorController::class, 'update']);
 
 Route::get('/pacijentdelete/{pacijent}', [PacijentController::class, 'delete']);
 Route::delete('/pacijentdelete/{pacijent}', [PacijentController::class, 'obrisiPacijenta']);
-//Route::delete('/pocetna', [PacijentController::class, 'obrisiPacijenta']);
+
+Route::get('/doktordelete/{doktor}', [DoktorController::class, 'delete']);
+Route::delete('/doktordelete/{doktor}', [DoktorController::class, 'obrisiDoktora']);
+
+

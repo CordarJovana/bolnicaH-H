@@ -14,6 +14,7 @@ class PacijentController extends Controller
        return $pacijenti;
     }
 
+
     public function add(){
         return view('addp');
     }
@@ -44,7 +45,7 @@ class PacijentController extends Controller
         
     }
 
-    public function kreirajPacijenta(Request $request)
+  /*  public function kreirajPacijenta(Request $request)
     {
         $this->validate($request,['ime_prezime'=>'required', 'jmbg'=>'required']);
        
@@ -60,7 +61,7 @@ class PacijentController extends Controller
 
         /*return response()->json([
             'poruka' => "Uspešno ste dodali novi karton pacijenta: ".$ime_prezime." !"
-        ]);*/
+        ]);
         return redirect('/');
     }
 
@@ -82,7 +83,7 @@ class PacijentController extends Controller
                 'poruka' => "Uspešno ste izmenili pacijenta: ".$pacijent->ime_prezime." !"
             ]);
         }
-    }
+    }*/
 
 public function delete(Pacijent $pacijent){
     return view('deletep',compact('pacijent'));  

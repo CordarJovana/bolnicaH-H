@@ -35,20 +35,21 @@
                     <tbody id="doktori_podaci">
                     @foreach($doktori as $doktor)
                     <tr class="border-b hover:bg-orange-100">
-                        <td contentEditable=true class="p-3 px-5">
+                        <td class="p-3 px-5">
                             {{$doktor->ime_prezime}}
                         </td>
-                        <td contentEditable=true class="p-3 px-5">
+                        <td class="p-3 px-5">
                             {{$doktor->jmbg}}
                         </td>
-                        <td contentEditable=true class="p-3 px-5">
+                        <td class="p-3 px-5">
                             {{$doktor->kategorija}}
                         </td>
                         <td>
-                            
-                          
-                        <button class="btn btn-danger obriši-doktora" >Obriši</button>
-                        <button class="btn btn-primary prikazi-preglede" >Prikaži preglede</button>
+                        <a href="/doktor/{{$doktor->id}}" name="editd" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-black py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</a>
+                        <a href="/doktordelete/{{$doktor->id}}" name="deleted" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-black py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</a>
+                        <a href="/pregledd/{{$doktor->id}}" name="pregledid" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-black py-1 px-2 rounded focus:outline-none focus:shadow-outline">Pregledi</a>
+</td>
+
                       </td>
                     </tr>
                 @endforeach
@@ -61,7 +62,7 @@
 <!-- Forma za unos novog doktora-->
 
               <div class="flex-auto text-right mt-2">
-                    <a href="/doktor" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Dodaj novog doktora</a>
+                    <button href="/doktor" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Dodaj novog doktora</button>
                 </div>
               
 <!-- Tabela Pacijenata-->
@@ -80,33 +81,27 @@
                     <tbody id="pacijenti_podaci">
                     @foreach($pacijenti as $pacijent)
                     <tr class="border-b hover:bg-orange-100">
-                        <td contentEditable=true class="p-3 px-5">
+                        <td class="p-3 px-5">
                             {{$pacijent->ime_prezime}}
                         </td>
-                        <td contentEditable=true class="p-3 px-5">
+                        <td class="p-3 px-5">
                             {{$pacijent->jmbg}}
                         </td>
                         <td>
                         <a href="/pacijent/{{$pacijent->id}}" name="editp" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-black py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</a>
                         <a href="/pacijentdelete/{{$pacijent->id}}" name="deletep" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-black py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</a>
-                        <button class="btn btn-danger obriši-pacijenta" >Obriši</button>
-                        <button class="btn btn-primary prikazi-preglede" >Prikaži preglede</button>
+                        <a href="/pregledip/{{$pacijent->id}}" name="pregledip" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-black py-1 px-2 rounded focus:outline-none focus:shadow-outline">Pregledi</a>
                       </td>
                     </tr>
                 @endforeach
                     </tbody>
                 </table>
               </div>
-
-
-              <div class="flex-auto text-right mt-2">
-                    <a href="/pacijent" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Add new Task</a>
-                </div>
         
 
 <!-- Forma za unos novog pacijenta-->
 <div class="flex-auto text-right mt-2">
-                    <button href="/pacijent" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Dodaj novog pacijenta</button>
+                    <button href="/pacijent" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Dodaj novog pacijenta</button>
                 </div>
 
 <!-- Forma za dodavanje novog pregleda-->

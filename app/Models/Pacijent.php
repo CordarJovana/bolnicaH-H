@@ -11,9 +11,9 @@ class Pacijent extends Model
     protected $table = "pacijent";
     public $timestamps = false;
 
-    public function preglediPacijenta()
+    public static function preglediPacijenta()
     {
-        return $this->hasMany('App\Http\Models\Pregled', 'idkorisnika', 'id');
+        return $this->hasMany('App\Http\Models\Pregled', 'idpacijenta', 'id');
     }
 
     public function vratiImePrezimePacijenta()

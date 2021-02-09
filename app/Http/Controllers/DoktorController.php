@@ -23,10 +23,28 @@ class DoktorController extends Controller
         $doktor = new Doktor();
         $doktor->ime_prezime = $request->ime_prezime;
         $doktor->jmbg = $request->jmbg;
-        $kategorija = $request->input('kategorija');
+        $doktor->kategorija = $request->input('kategorija');
         $doktor->save();
         return redirect('/pocetna');
     }
+
+    public function edit(Doktor $doktor){
+        
+        return view('editd',compact('doktor'));     
+    
+}
+
+public function update(Request $request, Doktor $doktor){
+    
+    
+    $doktor->ime_prezime = $request->ime_prezime;
+    $doktor->jmbg = $request->jmbg;
+    $doktor->kategorija = $request->input('kategorija');
+    $doktor->save();
+    return redirect('/pocetna');
+       
+    
+}
 
     public function kreirajDoktora(Request $request)
     {
@@ -69,10 +87,14 @@ class DoktorController extends Controller
         }
     }
 
-
-    public function obrisiDoktora(Request $request)
+    public function delete(Doktor $doktor){
+        return view('deleted',compact('doktor'));  
+    }
+       
+    
+    public function obrisiDoktora(Doktor $doktor)
     {
-        $id = $request->input('id');
-        Doktor::find($id)->delete();
+        $doktor->delete();
+            return redirect('/pocetna');
     }
 }

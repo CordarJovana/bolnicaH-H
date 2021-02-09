@@ -9,24 +9,20 @@ use App\Models\Pregled;
 
 class PregledController extends Controller
 {
-    public function vratiPregledePoDoktorima(Request $request)
+    public static function vratiPregledePoDoktorima(Request $request)
     {
         $iddoktora = $request->input('iddoktora');
-        $pregedi  = Doktor::find($iddoktora)->preglediDoktora()->get();
+        $pregledi  = Doktor::find($iddoktora)->preglediDoktora()->get();
 
-        return response()->json([
-            'pregledi' => $pregledi
-        ]);
+        return $pregledi;
     }
 
-    public function vratiPregledePoPacijentima(Request $request)
+    public static function vratiPregledePoPacijentima(Request $request)
     {
-        $idpacijenta = $request->input('idpacijenta');
-        $pregedi  = Pacijent::find($idpacijenta)->preglediPacijenta()->get();
+        $idpacijenta = $request->id;
+        $pregledi  = Pacijent::find($idpacijenta)->preglediPacijenta()->get();
 
-        return response()->json([
-            'pregledi' => $pregledi
-        ]);
+        return $pregledi;
     }
 
     public function kreirajPregled(Request $request)

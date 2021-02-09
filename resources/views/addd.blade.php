@@ -30,7 +30,7 @@
                 <option value="pedijatar">Pedijatar</option>
                 <option value="neurolog">Neurolog</option>
                 <option value="dermatolog">Dermatolog</option>
-                <option value="psiholog">Psihologphp</option>
+                <option value="psiholog">Psiholog</option>
                     </select>
                     <div class="form-group">
                     <button type="submit" name="submit" id="dodaj_pacijenta" class="btn btn-success">Sačuvaj</button>
