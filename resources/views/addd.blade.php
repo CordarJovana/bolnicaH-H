@@ -26,7 +26,7 @@
                   <input type="text" class="form-control m-2" name="jmbg" id="jmbg_pacijenta" 
                   placeholder="Unesite JMBG" value="" required>
                   <div class="form-group">
-                <select class="form-control m-2" id="kategorija_doktora">
+                <select class="form-control m-2" id="kategorija_doktora" name="kategorija">
                 <option value="pedijatar">Pedijatar</option>
                 <option value="neurolog">Neurolog</option>
                 <option value="dermatolog">Dermatolog</option>

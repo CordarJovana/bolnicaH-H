@@ -43,4 +43,10 @@ Route::delete('/pacijentdelete/{pacijent}', [PacijentController::class, 'obrisiP
 Route::get('/doktordelete/{doktor}', [DoktorController::class, 'delete']);
 Route::delete('/doktordelete/{doktor}', [DoktorController::class, 'obrisiDoktora']);
 
+Route::get('/pregled', function(){
+    $doktori=DoktorController::vratiDoktore();
+    $pacijenti=PacijentController::vratiPacijente();
+    return view('addpr',['doktori'=>$doktori, 'pacijenti'=>$pacijenti]);
+});
+Route::post('/pregled', [PregledController::class, 'create']);
 

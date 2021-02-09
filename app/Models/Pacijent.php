@@ -13,7 +13,7 @@ class Pacijent extends Model
 
     public static function preglediPacijenta()
     {
-        return $this->hasMany('App\Http\Models\Pregled', 'idpacijenta', 'id');
+        return $this->hasMany(Pregled::class);
     }
 
     public function vratiImePrezimePacijenta()

@@ -16,6 +16,19 @@ class PregledController extends Controller
 
         return $pregledi;
     }
+    public function add(){
+        return view('addpr');
+    }
+    public function create(Request $request){
+       
+        $pregled = new Pregled();
+        $pregled->simptomi = $request->simptomi;
+        $pregled->termin = $request->termin;
+        $pregled->iddoktora = $request->input('iddoktora');
+        $pregled->idpacijenta = $request->input('idpacijenta');
+        $pregled->save();
+        return redirect('/pocetna');
+    }
 
     public static function vratiPregledePoPacijentima(Request $request)
     {

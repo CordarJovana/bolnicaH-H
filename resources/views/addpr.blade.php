@@ -16,12 +16,30 @@
     <link rel="icon" type="image/png" href="css\favicon.png">
     <title>BOLNICA H&H</title>
 </head>
-<div class="py-12">
+    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-5">
-                <form action="/doktordelete/{{$doktor->id}}" method="POST">
-                @method('DELETE')
-                        <button type="submit" name="delete"  class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Obriši doktora</button>
+        <div class="formaZaDodavanje">
+                <form action="/pregled" method="POST">
+                <textarea class="form-control m-1" name="simptomi" id="simptomi" cols="30" rows="10" placeholder="Unesite simptome pacijenta" ></textarea>
+            <input type="datetime" name="termin" class="form-control m-2" title="Unesite datum i vreme pregleda (u formatu godina-mesec-dan sat:minut:sekund)" id="datum_pregleda" placeholder="Unesite datum u formatu:GGGG-MM-DD">
+            
+            <select class="form-control m-1" id="iddoktora" name="iddoktora">
+        
+            @foreach($doktori as $doktor)
+            <option value='{{$doktor->id}}'>{{$doktor->ime_prezime}} </option>
+            @endforeach
+            </select>
+            
+            <select class="form-control m-1" id="idpacijenta" name="idpacijenta">
+            @foreach($pacijenti as $pacijent)
+            <option value='{{$pacijent->id}}'>{{$pacijent->ime_prezime}} </option>
+            @endforeach
+            </select>
+        <br>
+        
+                    <div class="form-group">
+                    <button type="submit" name="submit" id="dodaj_pacijenta" class="btn btn-success">Sačuvaj</button>
                     </div>
                     {{ csrf_field() }}
                 </form>
@@ -30,3 +48,4 @@
         </div>
     
     </div>
+</div>

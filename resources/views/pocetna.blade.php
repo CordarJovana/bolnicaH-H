@@ -62,7 +62,7 @@
 <!-- Forma za unos novog doktora-->
 
               <div class="flex-auto text-right mt-2">
-                    <button href="/doktor" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Dodaj novog doktora</button>
+                    <a href="/doktor" class="bg-blue-500 hover:bg-blue-700 text-red font-bold py-2 px-4 rounded">Dodaj novog doktora</a>
                 </div>
               
 <!-- Tabela Pacijenata-->
@@ -101,24 +101,15 @@
 
 <!-- Forma za unos novog pacijenta-->
 <div class="flex-auto text-right mt-2">
-                    <button href="/pacijent" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Dodaj novog pacijenta</button>
+                    <a href="/pacijent" class="bg-blue-500 hover:bg-blue-700 text-red font-bold py-2 px-4 rounded">Dodaj novog pacijenta</a>
                 </div>
 
+
+
 <!-- Forma za dodavanje novog pregleda-->
-<div class="formaZaDodavanje">
-    <form>
-        <h1 class="my-3">Zakažite pregled</h1>
-        <div class="form-inline">
-            <input type="datetime" class="form-control m-2" title="Unesite datum i vreme pregleda (u formatu godina-mesec-dan sat:minut:sekund)" id="datum_pregleda" placeholder="Unesite datum u formatu:GGGG-MM-DD">
-            
-            <select class="form-control m-1" id="iddoktora">
-            </select>
-            
-            <select class="form-control m-1" id="idpacijenta">
-            </select>
-        <br>
-        <textarea class="form-control m-1" name="tekst_simptoma" id="simptomi" cols="30" rows="10" placeholder="Unesite simptome pacijenta" ></textarea>
-        <button class="btn btn-primary form-control m-1" id="dodajPregled" onclick="kreirajPregled()">Sačuvaj</button>
+<div class="flex-auto text-right mt-2">
+                    <a href="/pregled" class="bg-blue-500 hover:bg-blue-700 text-red font-bold py-2 px-4 rounded">Zakažite novi pregled</a>
+                </div>
 </div>
 </form>
 
