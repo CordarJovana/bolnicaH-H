@@ -22,7 +22,8 @@ Route::get('/', [MainController::class, 'pocetna']);
 Route::get('/pocetna', function(){
     $doktori=DoktorController::vratiDoktore();
     $pacijenti=PacijentController::vratiPacijente();
-    return view('pocetna',['doktori'=>$doktori, 'pacijenti'=>$pacijenti]);
+    $pregledi=PregledController::vratiPreglede();
+    return view('pocetna',['doktori'=>$doktori, 'pacijenti'=>$pacijenti, 'pregledi'=>$pregledi]);
 });
 
 Route::get('/pacijent', [PacijentController::class, 'add']);
@@ -49,4 +50,6 @@ Route::get('/pregled', function(){
     return view('addpr',['doktori'=>$doktori, 'pacijenti'=>$pacijenti]);
 });
 Route::post('/pregled', [PregledController::class, 'create']);
+
+
 

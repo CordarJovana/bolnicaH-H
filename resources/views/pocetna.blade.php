@@ -47,7 +47,7 @@
                         <td>
                         <a href="/doktor/{{$doktor->id}}" name="editd" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-black py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</a>
                         <a href="/doktordelete/{{$doktor->id}}" name="deleted" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-black py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</a>
-                        <a href="/pregledd/{{$doktor->id}}" name="pregledid" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-black py-1 px-2 rounded focus:outline-none focus:shadow-outline">Pregledi</a>
+                        <a href="/pregledd/{{$doktor->id}}" name="pregledd" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-black py-1 px-2 rounded focus:outline-none focus:shadow-outline">Pregledi</a>
 </td>
 
                       </td>
@@ -104,7 +104,42 @@
                     <a href="/pacijent" class="bg-blue-500 hover:bg-blue-700 text-red font-bold py-2 px-4 rounded">Dodaj novog pacijenta</a>
                 </div>
 
+                <div class="container-fluid padding">
+      <div class="row welcome text-center">
+        <div class="col-12">
+          <div class="table">
+            <h1 class="my-3">Pregledi</h1>
+            <table id="users-table" class="table">
+              <thead>
+                    <tr>
+                      <th scope="col">Simptomi</th>
+                      <th scope="col">Termin</th>
+                      <th scope="col">ID doktora</th>
+                      <th scope="col">ID pacijenta</th>
+                      
+                    </tr>
+                  </thead>
+                    <tbody id="doktori_podaci">
+                    @foreach($pregledi as $pregled)
+                    <tr class="border-b hover:bg-orange-100">
+                        <td  class="p-3 px-5">
+                            {{$pregled->simptomi}}
+                        </td>
+                        <td class="p-3 px-5">
+                            {{$pregled->termin}}
+                        </td>
+                        <td  class="p-3 px-5">
+                            {{$pregled->iddoktora}}
+                        </td>
+                        <td class="p-3 px-5">
+                            {{$pregled->idpacijenta}}
+                        </td>
+                    </tr>
+                @endforeach
 
+                </tbody>
+                </table>
+              </div>
 
 <!-- Forma za dodavanje novog pregleda-->
 <div class="flex-auto text-right mt-2">
